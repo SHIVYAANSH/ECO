@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - EcoPack</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Sign-Up Form Styling */
+        main {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 80vh;
+        }
+
+        form {
+            background-color: #f4f4f4;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 300px;
+        }
+
+        form input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        form button {
+            background-color: #2ecc71;
+            color: white;
+            padding: 10px;
+            width: 100%;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        form button:hover {
+            background-color: #27ae60;
+        }
+
+        form .message {
+            margin-top: 10px;
+            color: red;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Sign Up Form -->
+    <main>
+        <form id="signupForm">
+            <h2>Sign Up</h2>
+            <input type="text" id="signupUsername" placeholder="Username" required>
+            <input type="password" id="signupPassword" placeholder="Password" required>
+            <input type="email" id="signupEmail" placeholder="Email" required>
+            <button type="submit">Sign Up</button>
+            <div class="message" id="signupMessage"></div>
+        </form>
+    </main>
+
+    <script>
+        const signupForm = document.getElementById('signupForm');
+        const signupMessage = document.getElementById('signupMessage');
+
+        signupForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const username = document.getElementById('signupUsername').value;
+            const password = document.getElementById('signupPassword').value;
+            const email = document.getElementById('signupEmail').value;
+
+            const user = {
+                username,
+                password,
+                email
+            };
+
+            // Store user details in local storage
+            localStorage.setItem('currentUser', JSON.stringify(user));
+
+            // Show success message
+            signupMessage.style.color = 'green';
+            signupMessage.innerText = 'Sign up successful! Redirecting...';
+
+            // Redirect to the home page after 2 seconds
+            setTimeout(() => {
+                window.location.href = 'index.html';
+            }, 2000);
+        });
+    </script>
+</body>
+</html>

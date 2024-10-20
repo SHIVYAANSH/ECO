@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eco-Friendly Products - EcoPack</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* General Product Grid Layout */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 50px;
+            background-color: #f4f4f4;
+        }
+
+        /* Individual Product Card */
+        .product-card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-bottom: 1px solid #ddd;
+            margin-bottom: 15px;
+        }
+
+        .product-title {
+            font-size: 22px;
+            color: #2ecc71;
+            margin-bottom: 10px;
+        }
+
+        .product-description {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .product-price {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .add-to-cart {
+            background-color: #2ecc71;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .add-to-cart:hover {
+            background-color: #27ae60;
+        }
+
+        /* Cart Section */
+        .cart {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            width: 300px;
+            background-color: white;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            padding: 20px;
+        }
+
+        .cart h2 {
+            color: #2ecc71;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .cart-items {
+            list-style-type: none;
+            padding: 0;
+            margin-bottom: 10px;
+        }
+
+        .cart-items li {
+            margin-bottom: 10px;
+            font-size: 16px;
+            color: #666;
+        }
+
+        .subtotal {
+            font-size: 18px;
+            color: #333;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        .cart-actions button {
+            background-color: #2ecc71;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+            width: 100%;
+            transition: background-color 0.3s ease;
+        }
+
+        .cart-actions button:hover {
+            background-color: #27ae60;
+        }
+
+        /* Responsive for Smaller Screens */
+        @media (max-width: 768px) {
+            .product-card {
+                margin-bottom: 20px;
+            }
+
+            .cart {
+                width: 90%;
+                right: 5%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="nav-center">
+            <a href="index.html">Home</a>
+            <a href="aboutus.html">About Us</a>
+            <a href="marketplace.html">Products</a>
+            <a href="resources.html">Resources</a>
+            <a href="contact.html">Contact</a>
+        </div>
+        <a href="#" class="profile-btn">Profile</a>
+    </nav>
+
+    <!-- Cart Section -->
+    <div class="cart">
+        <h2>Your Eco-Friendly Cart</h2>
+        <ul class="cart-items" id="cart-items-eco">
+            <!-- Cart items will appear here -->
+        </ul>
+        <div class="subtotal">Subtotal: $<span id="subtotal-eco">0.00</span></div>
+        <div class="cart-actions">
+            <button onclick="clearCartEco()">Clear Cart</button>
+        </div>
+    </div>
+
+    <!-- Eco-Friendly Products Section -->
+    <main class="product-grid">
+        <!-- Product 1 -->
+        <div class="product-card">
+            <img src="eco-container.png" alt="Eco-Friendly Food Container" class="product-image">
+            <h3 class="product-title">Eco-Friendly Food Container</h3>
+            <p class="product-description">Sustainable food containers made from natural materials.</p>
+            <div class="product-price">$20.00</div>
+            <button class="add-to-cart" data-name="Eco-Friendly Food Container" data-price="20.00">Add to Cart</button>
+        </div>
+
+        <!-- Product 2 -->
+        <div class="product-card">
+            <img src="eco-plate.png" alt="Eco-Friendly Plate Set" class="product-image">
+            <h3 class="product-title">Eco-Friendly Plate Set</h3>
+            <p class="product-description">Durable and eco-friendly plates made from biodegradable materials.</p>
+            <div class="product-price">$25.00</div>
+            <button class="add-to-cart" data-name="Eco-Friendly Plate Set" data-price="25.00">Add to Cart</button>
+        </div>
+
+        <!-- Product 3 -->
+        <div class="product-card">
+            <img src="eco-bottle.png" alt="Eco-Friendly Water Bottle" class="product-image">
+            <h3 class="product-title">Eco-Friendly Water Bottle</h3>
+            <p class="product-description">A reusable water bottle made from eco-friendly materials.</p>
+            <div class="product-price">$18.00</div>
+            <button class="add-to-cart" data-name="Eco-Friendly Water Bottle" data-price="18.00">Add to Cart</button>
+        </div>
+        <div class="product-card">
+            <img src="eco-bottle.png" alt="Eco-Friendly Water Bottle" class="product-image">
+            <h3 class="product-title">Eco-Friendly Water Bottle</h3>
+            <p class="product-description">A reusable water bottle made from eco-friendly materials.</p>
+            <div class="product-price">$18.00</div>
+            <button class="add-to-cart" data-name="Eco-Friendly Water Bottle" data-price="18.00">Add to Cart</button>
+        </div>
+
+        <div class="product-card">
+            <img src="eco-bottle.png" alt="Eco-Friendly Water Bottle" class="product-image">
+            <h3 class="product-title">Eco-Friendly Water Bottle</h3>
+            <p class="product-description">A reusable water bottle made from eco-friendly materials.</p>
+            <div class="product-price">$18.00</div>
+            <button class="add-to-cart" data-name="Eco-Friendly Water Bottle" data-price="18.00">Add to Cart</button>
+        </div>
+
+
+        <!-- Add more eco-friendly products -->
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        &copy; 2024 EcoPack. All Rights Reserved.
+    </footer>
+
+    <script>
+        const cartEco = JSON.parse(localStorage.getItem('cartEco')) || [];
+        const cartItemsEcoList = document.getElementById('cart-items-eco');
+        const subtotalEcoElement = document.getElementById('subtotal-eco');
+
+        // Function to render the eco-friendly cart
+        function renderCartEco() {
+            cartItemsEcoList.innerHTML = '';
+            let subtotalEco = 0;
+
+            cartEco.forEach(item => {
+                const li = document.createElement('li');
+                li.innerText = `${item.name} - $${item.price}`;
+                cartItemsEcoList.appendChild(li);
+                subtotalEco += parseFloat(item.price);
+            });
+
+            subtotalEcoElement.innerText = subtotalEco.toFixed(2);
+        }
+
+        // Function to add item to eco-friendly cart
+        function addToCartEco(itemName, itemPrice) {
+            const newItem = { name: itemName, price: itemPrice };
+            cartEco.push(newItem);
+            localStorage.setItem('cartEco', JSON.stringify(cartEco));
+            renderCartEco();
+        }
+
+        // Function to clear the eco-friendly cart
+        function clearCartEco() {
+            localStorage.removeItem('cartEco');
+            cartEco.length = 0; // Empty the array
+            renderCartEco();
+        }
+
+        // Add event listeners to all "Add to Cart" buttons for eco-friendly products
+        document.querySelectorAll('.add-to-cart').forEach(button => {
+            button.addEventListener('click', () => {
+                const name = button.getAttribute('data-name');
+                const price = button.getAttribute('data-price');
+                addToCartEco(name, price);
+            });
+        });
+
+        // Initial render of the eco-friendly cart
+        renderCartEco();
+    </script>
+</body>
+</html>

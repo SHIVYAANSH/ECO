@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoPack - Sustainable Packaging Solutions</title>
+    <link rel="icon" href="favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Global Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Navigation Bar */
+        nav {
+            background-color: #2ecc71;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-center {
+            display: flex;
+            gap: 20px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            font-size: 35px;
+        }
+
+        nav a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Profile Icon */
+        .profile-btn {
+            background-color: white;
+            color: #2ecc71;
+            padding: 10px;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            position: relative;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .profile-popup {
+            display: none;
+            position: absolute;
+            top: 60px;
+            right: 0;
+            background-color: white;
+            padding: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            text-align: left;
+            font-size: 14px;
+            width: 200px;
+        }
+
+        .profile-popup p {
+            margin: 0;
+            padding: 5px 0;
+        }
+
+        .profile-popup a {
+            color: #2ecc71;
+            text-decoration: none;
+        }
+
+        .profile-popup a:hover {
+            text-decoration: underline;
+        }
+
+        /* Hero Section */
+        .hero {
+            background-color:#93f682;
+            background-size: cover;
+            background-position: center;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 100px;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            font-size: 40px;
+        }
+
+        .hero .btn {
+            background-color: white;
+            color: #2ecc71;
+            padding: 15px 30px;
+            font-size: 27px;
+            text-decoration: none;
+            margin-top: 20px;
+            border-radius: 5px;
+        }
+
+        .hero .btn:hover {
+            background-color: #27ae60;
+            color: white;
+        }
+
+        /* Features Section */
+        .features {
+            display: flex;
+            justify-content: space-around;
+            padding: 50px 0;
+            background-color: #f4f4f4;
+            gap: 30px;
+        }
+
+        .features div {
+            width: 25%;
+            text-align: center;
+        }
+
+        .features img {
+            width: 200px;
+            margin-bottom: 20px;
+        }
+
+        .features h3 {
+            font-size: 30px;
+            margin-bottom: 10px;
+            color: #2ecc71;
+        }
+
+        .features p {
+            font-size: 24px;
+        }
+
+        /* Why Choose Us Section */
+        .why-us {
+            padding: 50px;
+            text-align: center;
+        }
+
+        .why-us h2 {
+            color: #2ecc71;
+            margin-bottom: 20px;
+            font-size: 40px;
+        }
+
+        .why-us p {
+            font-size: 25px;
+            color: #666;
+        }
+
+        /* Sustainability Section */
+        .sustainability {
+            padding: 50px;
+            background-color: #27ae60;
+            color: white;
+            text-align: center;
+        }
+
+        .sustainability h2 {
+            margin-bottom: 20px;
+            font-size: 50px;
+        }
+
+        .sustainability p {
+            font-size: 27px;
+            line-height: 1.6;
+        }
+
+        /* Call to Action Section */
+        .cta {
+            padding: 50px;
+            text-align: center;
+            background-color: #f4f4f4;
+            font-size: 35px;
+        }
+
+        .cta .btn {
+            background-color: #2ecc71;
+            color: white;
+            padding: 15px 30px;
+            font-size: 27px;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .cta .btn:hover {
+            background-color: #27ae60;
+        }
+
+        /* Footer */
+        footer {
+            padding: 20px;
+            background-color: #2ecc71;
+            color: white;
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="nav-center">
+            <a href="index.html">Home</a>
+            <a href="aboutus.html">About Us</a>
+            <a href="marketplace.html">Products</a>
+            <a href="resources.html">Resources</a>
+            <a href="contact.html">Contact</a>
+        </div>
+        <div class="profile-btn" id="profileIcon">P</div>
+        <div class="profile-popup" id="profilePopup">
+            <p id="userDetails"></p>
+            <a href="#" id="logoutLink">Logout</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="hero">
+        <div>
+            <b><h1>Welcome to EcoPack</h1></b>
+            <b><p>Eco-Friendly Packaging Solutions for a Sustainable Future</p></b>
+            <br>
+            <a href="marketplace.html" class="btn">Explore Marketplace</a>
+        </div>
+    </div>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div>
+            <img src="bio.png" alt="Biodegradable Packaging">
+            <h3>Biodegradable Products</h3>
+            <p>Explore our range of biodegradable and compostable packaging materials.</p>
+        </div>
+        <div>
+            <img src="Reusable.png" alt="Reusable Solutions">
+            <h3>Reusable Solutions</h3>
+            <p>Reduce waste with our reusable cloth bags, containers, and more.</p>
+        </div>
+        <div>
+            <img src="ECO.PNG">
+            <h3>Eco Materials Finder</h3>
+            <p>Find the best eco-friendly materials for your business needs.</p>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section class="why-us">
+        <h2>Why Choose EcoPack?</h2>
+        <p>At EcoPack, we believe in offering eco-friendly solutions that not only reduce waste but also promote a sustainable way of living. Our products are designed to minimize the environmental impact and help businesses transition towards greener alternatives.</p>
+    </section>
+
+    <!-- Sustainability Impact Section -->
+    <section class="sustainability">
+        <h2>Our Sustainability Impact</h2>
+        <p>By choosing EcoPack, you are helping reduce the use of single-use plastics, promoting the use of biodegradable materials, and supporting sustainable practices. Every package matters, and together we can build a more sustainable future.</p>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section class="cta">
+        <h2>Get Started with EcoPack Today</h2>
+        <br>
+        <a href="signup.html" class="btn">Sign Up Now</a>
+        <a href="marketplace.html" class="btn">Browse Products</a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        &copy; 2024 EcoPack. All Rights Reserved.
+    </footer>
+
+    <!-- Script to Handle Profile Sign-In/Sign-Out -->
+    <script>
+        const profileIcon = document.getElementById('profileIcon');
+        const profilePopup = document.getElementById('profilePopup');
+        const userDetails = document.getElementById('userDetails');
+        const logoutLink = document.getElementById('logoutLink');
+
+        // Check if user is logged in (in localStorage)
+        const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+
+        if (currentUser) {
+            // If user is logged in, show profile details in the popup
+            profileIcon.textContent = currentUser.username.charAt(0).toUpperCase(); // Set the first letter of the username in profile icon
+            profileIcon.addEventListener('click', () => {
+                profilePopup.style.display = profilePopup.style.display === 'block' ? 'none' : 'block';
+                userDetails.innerText = `Username: ${currentUser.username}\nEmail: ${currentUser.email}`;
+            });
+
+            // Handle logout
+            logoutLink.addEventListener('click', () => {
+                localStorage.removeItem('currentUser');
+                window.location.reload();
+            });
+        } else {
+            // If not logged in, navigate to credentials page
+            profileIcon.addEventListener('click', () => {
+                window.location.href = 'credintals.html';
+            });
+        }
+    </script>
+
+</body>
+</html>

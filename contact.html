@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - EcoPack</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="favicon.png" type="image/x-icon">
+    <style>
+        /* Contact Section */
+        .contact-section {
+            padding: 50px;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+
+        .contact-section h2 {
+            font-size: 40px;
+            color: #2ecc71;
+            margin-bottom: 20px;
+        }
+
+        .contact-details {
+            font-size: 20px;
+            margin-bottom: 40px;
+            color: #666;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-form input, .contact-form textarea {
+            padding: 15px;
+            margin-bottom: 20px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+        }
+
+        .contact-form button {
+            background-color: #2ecc71;
+            color: white;
+            padding: 15px;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .contact-form button:hover {
+            background-color: #27ae60;
+        }
+
+        .contact-info {
+            margin-top: 40px;
+            text-align: left;
+        }
+
+        .contact-info div {
+            margin-bottom: 15px;
+        }
+
+        .contact-info strong {
+            color: #2ecc71;
+        }
+
+        /* Success message styling */
+        .success-message {
+            display: none; /* Hidden by default */
+            font-size: 22px;
+            color: #2ecc71;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .contact-form {
+                width: 100%;
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="nav-center">
+            <a href="index.html">Home</a>
+            <a href="aboutus.html">About Us</a>
+            <a href="marketplace.html">Products</a>
+            <a href="resources.html">Resources</a>
+            <a href="contact.html">Contact</a>
+        </div>
+        <a href="credintals.html" class="profile-btn">Profile</a>
+    </nav>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <h2>Contact Us</h2>
+        <p class="contact-details">Feel free to reach out to us for any queries, support, or feedback!</p>
+
+        <!-- Contact Form -->
+        <form class="contact-form" id="contactForm">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <input type="text" name="subject" placeholder="Subject" required>
+            <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+
+        <!-- Success Message -->
+        <div class="success-message" id="successMessage">
+            Thank you for your feedback! Your message has been submitted successfully.
+        </div>
+
+        <!-- Contact Info -->
+        <div class="contact-info">
+            <div><strong>Address:</strong>India, Delhi-110096</div>
+            <div><strong>Email:</strong> shivyaansh4361@spsmayurvihar.com, Shaksham4291@spsmayurvihar.com, Adarsh4373@spsmayurvihar.com, Prateek____@spsmayurvihar.com</div>
+            <div><strong>Phone:</strong> +91 9582027577, +91 96500 82256, +91 97170 28908, +91 84465 34199</div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        &copy; 2024 EcoPack. All Rights Reserved.
+    </footer>
+
+    <!-- JavaScript to show success message -->
+    <script>
+        const form = document.getElementById('contactForm');
+        const successMessage = document.getElementById('successMessage');
+
+        form.addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the form from submitting
+            successMessage.style.display = 'block'; // Show the success message
+            form.reset(); // Reset the form fields
+        });
+    </script>
+</body>
+</html>
